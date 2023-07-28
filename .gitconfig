@@ -1,0 +1,53 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = chengqinglin
+	email = chengqinglin@icloud.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	quotepath = false  # 解决中文乱码问题
+	eol = lf
+	whitespace = -blank-at-eol
+	excludesfile = /Users/chengqinglin/.gitignore
+	# pager = less -iXFR
+	pager = delta
+	editor = vim
+	fileMode = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[diff]
+	submodule = log
+[color]
+	ui = true
+	colorMoved = default
+[svn]
+	pathnameencoding = utf-8
+[credential]
+	helper = store
+
+[http]
+	postBuffer = 157286400
+[http "https://aur.archlinux.org"]
+	proxy = http://host.docker.internal:1081
+[http "https://git.sv.gnu.org"]
+	proxy = http://host.docker.internal:1081
+[http "https://github.com"]
+	proxy =  http://host.docker.internal:1081
+[http "https://opendev.org"]
+	proxy =  http://host.docker.internal:1081
+[http "https://gn.googlesource.com"]
+	proxy =  http://host.docker.internal:1081
+[pull]
+	rebase = true
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true  # use n and N to move between diff sections
+	side-by-side = true
+[merge]
+	conflictstyle = diff3
