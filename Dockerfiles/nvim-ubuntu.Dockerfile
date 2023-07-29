@@ -8,7 +8,6 @@ LABEL maintainer="imuxin <chengqinglin@icloud.com>"
 
 ENV USER=muxin
 ENV HOME=/home/$USER
-ENV PS1="\[\e[31m\][\[\e[m\]\[\e[38;5;172m\]\u\[\e[m\]@\[\e[38;5;153m\]\h\[\e[m\] \[\e[38;5;214m\]\W\[\e[m\]\[\e[31m\]]\[\e[m\]\\$ "
 
 # 切换镜像源
 RUN sed -i "s@http://.*archive.ubuntu.com@http://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list \
@@ -18,7 +17,7 @@ RUN sed -i "s@http://.*archive.ubuntu.com@http://mirrors.tuna.tsinghua.edu.cn@g"
 COPY .curlrc .gitconfig .wgetrc /root/
 
 # install deps
-RUN apt install git ripgrep build-essential wget curl universal-ctags unzip -y
+RUN apt install git ripgrep build-essential wget curl universal-ctags unzip zstd python3 python3-venv -y
 
 # install go
 RUN apt install golang-${GOVersion} -y \
@@ -35,7 +34,11 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --defau
 
 # install nvim
 RUN wget https://github.com/neovim/neovim/releases/download/${nvimVersion}/nvim-linux64.tar.gz && tar -zxf nvim-linux64.tar.gz -C ~/ && mv nvim-linux64 ~/.nvim && rm -rf ./nvim-linux64.tar.gz
-ENV PATH="${PATH}:/home/$USER/.nvim/bin"
+
+# install zig
+RUN wget https://ziglang.org/download/0.10.1/zig-linux-x86_64-0.10.1.tar.xz && tar xf zig-linux-x86_64-0.10.1.tar.xz && mv zig-linux-x86_64-0.10.1 ~/.zig && rm -rf zig-linux-x86_64-0.10.1.tar.xz
+
+ENV PATH="${PATH}:/home/$USER/.nvim/bin:/home/$USER/.zig"
 
 # setting nvchad config
 COPY --chown=$USER NvChad/ $HOME/.config/nvim/

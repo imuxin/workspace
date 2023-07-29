@@ -9,6 +9,7 @@ M.treesitter = {
       "yaml",
       "json",
       "toml",
+      "zig",
     },
     indent = {
       enable = true,
