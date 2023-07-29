@@ -22,7 +22,6 @@ M.mason = {
   ensure_installed = {
     -- lua stuff
     "lua-language-server",
-    "stylua",
 
     -- web dev stuff
     -- "typescript-language-server",
@@ -30,17 +29,17 @@ M.mason = {
     -- "prettier",
 
     -- c/cpp stuff
-    "clangd",
-    "clang-format",
+    -- "clangd",
+    -- "clang-format",
+
+    -- zig
+    -- "zls",
 
     -- go
     "gopls",
 
     -- rust
     "rust-analyzer",
-
-    -- zig
-    "zls",
   },
 }
 

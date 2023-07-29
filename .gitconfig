@@ -33,15 +33,15 @@
 [http]
 	postBuffer = 157286400
 [http "https://aur.archlinux.org"]
-	proxy = http://host.docker.internal:1081
+	proxy = http://localhost:1081
 [http "https://git.sv.gnu.org"]
-	proxy = http://host.docker.internal:1081
+	proxy = http://localhost:1081
 [http "https://github.com"]
-	proxy =  http://host.docker.internal:1081
+	proxy =  http://localhost:1081
 [http "https://opendev.org"]
-	proxy =  http://host.docker.internal:1081
+	proxy =  http://localhost:1081
 [http "https://gn.googlesource.com"]
-	proxy =  http://host.docker.internal:1081
+	proxy =  http://localhost:1081
 [pull]
 	rebase = true
 [interactive]
