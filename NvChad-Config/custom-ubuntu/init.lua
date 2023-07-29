@@ -7,11 +7,11 @@
 -- })
 
 local opt = vim.opt
-local g = vim.g
 
 opt.clipboard = "unnamedplus"
 opt.expandtab = false
 opt.relativenumber = true
 opt.shiftwidth = 4
 opt.tabstop = 4
+opt.shell = "/bin/bash"
 
