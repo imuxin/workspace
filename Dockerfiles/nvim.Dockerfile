@@ -15,7 +15,7 @@ RUN apk add git neovim ripgrep build-base wget ctags go rust cargo --update
 RUN go env -w GOPROXY=https://goproxy.cn,direct
 
 RUN addgroup -S $USER && adduser -S $USER -G $USER
-USER muxin
+USER $USER
 WORKDIR /home/$USER
 
 COPY --chown=$USER .gitconfig $HOME/
