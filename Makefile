@@ -13,5 +13,11 @@ clean-ubuntu:
 run-alpine:
 	docker run -ti --network=host --rm slic/nvim-build:alpine bash
 
+run-alpine-root:
+	docker run -ti --user root:root --network=host --rm slic/nvim-build:alpine bash
+
 run-ubuntu:
 	docker run -ti --network=host --rm slic/nvim-build:ubuntu bash
+
+run-ubuntu-root:
+	docker run -ti --user root:root --network=host --rm slic/nvim-build:ubuntu bash
