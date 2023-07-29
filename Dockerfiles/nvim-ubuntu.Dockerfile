@@ -42,4 +42,4 @@ ENV PATH="${PATH}:/home/$USER/.nvim/bin:/home/$USER/.zig"
 
 # setting nvchad config
 COPY --chown=$USER NvChad/ $HOME/.config/nvim/
-COPY --chown=$USER NvChad-Config/custom/ $HOME/.config/nvim/lua/custom
+COPY --chown=$USER NvChad-Config/custom-ubuntu/ $HOME/.config/nvim/lua/custom
