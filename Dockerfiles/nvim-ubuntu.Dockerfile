@@ -17,7 +17,7 @@ RUN sed -i "s@http://.*archive.ubuntu.com@http://mirrors.tuna.tsinghua.edu.cn@g"
 COPY .curlrc .gitconfig .wgetrc /root/
 
 # install deps
-RUN apt install git ripgrep build-essential wget curl universal-ctags unzip zstd python3 python3-venv -y
+RUN apt install git ripgrep build-essential wget curl universal-ctags unzip zstd python3 python3-venv cmake -y
 
 # install go
 RUN apt install golang-${GOVersion} -y \

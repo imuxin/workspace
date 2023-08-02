@@ -4,6 +4,9 @@ build-alpine: clean-alpine
 build-ubuntu: clean-ubuntu
 	docker build --network=host -t slic/nvim-build:ubuntu -f Dockerfiles/nvim-ubuntu.Dockerfile .
 
+build-ubuntu-no-cache: clean-ubuntu
+	docker build --no-cache --network=host -t slic/nvim-build:ubuntu -f Dockerfiles/nvim-ubuntu.Dockerfile .
+
 clean-alpine:
 	docker rmi slic/nvim-build:alpine 2> /dev/null || true
 

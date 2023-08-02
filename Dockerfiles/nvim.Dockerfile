@@ -19,7 +19,7 @@ RUN mkdir /zls && cd /zls && wget https://github.com/zigtools/zls/releases/downl
 # add USER
 ENV USER=muxin
 ENV HOME=/home/$USER
-RUN addgroup -S $USER && adduser -S $USER -G $USER
+RUN addgroup -S -g 1000 $USER && adduser -S $USER -G $USER -u 1000
 USER $USER
 WORKDIR /home/$USER
 COPY --chown=$USER .goenv $HOME/.config/go/env
