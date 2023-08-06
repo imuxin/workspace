@@ -1,5 +1,5 @@
 build-alpine: clean-alpine
-	docker build --network=host -t slic/nvim-build:alpine -f Dockerfiles/nvim.Dockerfile .
+	docker build --network=host -t slic/nvim-build:alpine -f Dockerfiles/nvim-alpine.Dockerfile .
 
 build-ubuntu: clean-ubuntu
 	docker build --network=host -t slic/nvim-build:ubuntu -f Dockerfiles/nvim-ubuntu.Dockerfile .
