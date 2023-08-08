@@ -15,6 +15,7 @@ RUN sed -i "s@http://.*archive.ubuntu.com@http://mirrors.tuna.tsinghua.edu.cn@g"
     && apt update
 
 COPY .curlrc .gitconfig .wgetrc /root/
+COPY protoc-23.4/include/* /usr/include/google/
 
 # install deps
 RUN apt install git ripgrep build-essential wget curl universal-ctags unzip zstd python3 python3-venv cmake -y
@@ -38,7 +39,7 @@ RUN wget https://github.com/neovim/neovim/releases/download/${nvimVersion}/nvim-
 # install zig
 RUN wget https://ziglang.org/download/0.10.1/zig-linux-x86_64-0.10.1.tar.xz && tar xf zig-linux-x86_64-0.10.1.tar.xz && mv zig-linux-x86_64-0.10.1 ~/.zig && rm -rf zig-linux-x86_64-0.10.1.tar.xz
 
-ENV PATH="${PATH}:/home/$USER/.nvim/bin:/home/$USER/.zig"
+ENV PATH="${PATH}:/home/$USER/.nvim/bin:/home/$USER/.zig:/home/$USER/.cargo/bin"
 
 # setting nvchad config
 COPY --chown=$USER NvChad/ $HOME/.config/nvim/
