@@ -11,7 +11,7 @@ COPY apk.repositories /etc/apk/repositories
 COPY .gitconfig .wgetrc .curlrc /root/
 
 # install deps
-RUN apk add bash git neovim ripgrep build-base curl wget gzip unzip cmake ctags go rust cargo zig zstd --update
+RUN apk add bash git neovim ripgrep build-base curl wget gzip unzip cmake ctags go rust cargo zig zstd protoc --update
 
 # install zls(zig language server)
 RUN mkdir /zls && cd /zls && wget https://github.com/zigtools/zls/releases/download/0.10.0/x86_64-linux.tar.zst && zstd -d x86_64-linux.tar.zst && tar -xvf x86_64-linux.tar && mv ./bin/zls /usr/local/bin/zls && cd / && rm -rf /zls
